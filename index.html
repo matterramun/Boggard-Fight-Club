@@ -399,6 +399,7 @@
                             <select v-model='filters.levelMinFilter' class="form-select" id="levelMinFilter">
                                 <option v-for="level in levels" :value="level">{{level}}</option>
                             </select>
+                            <button class="btn btn-primary w-100" v-on:click="setLevelToBoth">Set level filter to both</button>
                         </div>                        
                         <div class="order-2 oder-sm-1 order-md-1 col-4 col-sm-3 col-md-2">
                             <label for="levelMaxFilter" class="form-label">Lvl Max</label>
@@ -1046,6 +1047,9 @@
                         this.isAutomaticFilterEnabled = true;
                     });
                     this.filterCreatures();
+                },
+                setLevelToBoth: function(){
+                    this.filters.levelMaxFilter = this.filters.levelMinFilter
                 },
                 setMaxLevelFilter: function(){
                     this.filters.levelMaxFilter = this.partyFilters.partyLevelFilter +2;
